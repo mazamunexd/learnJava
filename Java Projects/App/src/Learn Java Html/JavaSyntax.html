@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Syntax Reference</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #0056b3;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        pre {
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Alphabetical Java Syntax Reference</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Syntax/Keyword</th>
+                    <th>Definition</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>abstract</code></td>
+                    <td>A non-access modifier. Can be applied to classes and methods. An <code>abstract</code> class cannot be instantiated, and an <code>abstract</code> method has no body and must be implemented by concrete subclasses.</td>
+                    <td><pre><code>public abstract class Animal {
+    public abstract void makeSound();
+}
+class Dog extends Animal {
+    public void makeSound() {
+        System.out.println("Woof");
+    }
+}</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>assert</code></td>
+                    <td>Used for debugging. It declares an assumption about a program state. If the assertion fails (the condition is false), an <code>AssertionError</code> is thrown.</td>
+                    <td><pre><code>int x = 10;
+assert x > 0 : "x must be positive"; // Asserts x is positive
+System.out.println(x);</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>boolean</code></td>
+                    <td>A primitive data type that can hold one of two values: <code>true</code> or <code>false</code>.</td>
+                    <td><pre><code>boolean isJavaFun = true;
+boolean hasError = false;</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>break</code></td>
+                    <td>Used to terminate the execution of the innermost loop (<code>for</code>, <code>while</code>, <code>do-while</code>) or <code>switch</code> statement.</td>
+                    <td><pre><code>for (int i = 0; i < 5; i++) {
+    if (i == 3) {
+        break; // Exits the loop when i is 3
+    }
+    System.out.println(i);
+}</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>byte</code></td>
+                    <td>A primitive data type that stores 8-bit signed two's complement integers. Range from -128 to 127.</td>
+                    <td><pre><code>byte smallNumber = 100;</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>case</code></td>
+                    <td>Used within a <code>switch</code> statement to define specific values that trigger a block of code.</td>
+                    <td><pre><code>int day = 3;
+switch (day) {
+    case 1:
+        System.out.println("Monday");
+        break;
+    case 3:
+        System.out.println("Wednesday"); // This will execute
+        break;
+}</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>catch</code></td>
+                    <td>Used in conjunction with a <code>try</code> block to handle exceptions that occur within the <code>try</code> block.</td>
+                    <td><pre><code>try {
+    int result = 10 / 0;
+} catch (ArithmeticException e) {
+    System.out.println("Cannot divide by zero!");
+}</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>char</code></td>
+                    <td>A primitive data type that stores a single 16-bit Unicode character.</td>
+                    <td><pre><code>char initial = 'J';
+char copyrightSymbol = '\u00A9';</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>class</code></td>
+                    <td>Used to declare a class, which is a blueprint or template for creating objects. It defines the structure and behavior of objects.</td>
+                    <td><pre><code>public class Car {
+    String model;
+    void drive() {
+        System.out.println(model + " is driving.");
+    }
+}</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>const</code></td>
+                    <td>Reserved keyword but not currently used in Java. Do not confuse with <code>final</code>.</td>
+                    <td><pre><code>// Not used in Java
+// const int MAX_VALUE = 100;</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>continue</code></td>
+                    <td>Used to skip the current iteration of a loop and continue with the next iteration.</td>
+                    <td><pre><code>for (int i = 0; i < 5; i++) {
+    if (i == 2) {
+        continue; // Skips printing 2
+    }
+    System.out.println(i);
+}</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>default</code></td>
+                    <td>Used in a <code>switch</code> statement to specify a block of code to be executed if no <code>case</code> matches. Also used in interfaces for default methods.</td>
+                    <td><pre><code>int day = 7;
+switch (day) {
+    case 1: break;
+    default:
+        System.out.println("Weekend"); // This will execute
+}</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>do</code></td>
+                    <td>Used to start a <code>do-while</code> loop, which executes its block at least once before checking the condition.</td>
+                    <td><pre><code>int count = 0;
+do {
+    System.out.println("Count: " + count);
+    count++;
+} while (count < 3);</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>double</code></td>
+                    <td>A primitive data type that stores 64-bit double-precision floating-point numbers. Used for decimals.</td>
+                    <td><pre><code>double price = 19.99;
+double pi = 3.14159;</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>else</code></td>
+                    <td>Used with an <code>if</code> statement to specify a block of code to be executed if the <code>if</code> condition is false.</td>
+                    <td><pre><code>int score = 75;
+if (score >= 90) {
+    System.out.println("Excellent");
+} else {
+    System.out.println("Good"); // This will execute
+}</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>enum</code></td>
+                    <td>Used to declare an enumeration, which is a special type that represents a fixed set of named constants.</td>
+                    <td><pre><code>public enum Day {
+    SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY
+}
+Day today = Day.MONDAY;</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>extends</code></td>
+                    <td>Used in a class declaration to indicate that a class inherits from another class (superclass). This establishes an "is-a" relationship.</td>
+                    <td><pre><code>class Animal { /* ... */ }
+class Dog extends Animal { // Dog is an Animal
+    /* ... */
+}</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>final</code></td>
+                    <td>A non-access modifier. Can be applied to variables (makes them constants), methods (prevents overriding), and classes (prevents inheritance).</td>
+                    <td><pre><code>final int MAX_SPEED = 120; // Constant variable
+public final void cannotOverride() { /* ... */ }
+public final class ImmutableClass { /* ... */ }</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>finally</code></td>
+                    <td>Used in a <code>try-catch-finally</code> block. The <code>finally</code> block always executes, regardless of whether an exception occurred or not.</td>
+                    <td><pre><code>try {
+    int data = 10 / 2;
+} catch (ArithmeticException e) {
+    System.out.println("Error occurred");
+} finally {
+    System.out.println("This always runs.");
+}</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>float</code></td>
+                    <td>A primitive data type that stores 32-bit single-precision floating-point numbers. Used for decimals.</td>
+                    <td><pre><code>float temperature = 98.6f; // 'f' suffix is important
+float pi = 3.14f;</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>for</code></td>
+                    <td>Used to create a loop that iterates a specific number of times or through a collection (enhanced for loop).</td>
+                    <td><pre><code>// Traditional for loop
+for (int i = 0; i < 5; i++) {
+    System.out.println(i);
+}
+// Enhanced for loop (for-each)
+int[] numbers = {1, 2, 3};
+for (int num : numbers) {
+    System.out.println(num);
+}</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>goto</code></td>
+                    <td>Reserved keyword but not used in Java. It is a jump statement found in some other languages.</td>
+                    <td><pre><code>// Not used in Java
+// goto label;</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>if</code></td>
+                    <td>Used for conditional execution. Executes a block of code if a specified condition is true.</td>
+                    <td><pre><code>int age = 20;
+if (age >= 18) {
+    System.out.println("Eligible to vote");
+}</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>implements</code></td>
+                    <td>Used in a class declaration to indicate that a class is providing the implementation for an interface. This establishes a "has-a" or "can-do" relationship.</td>
+                    <td><pre><code>interface Flyable { void fly(); }
+class Bird implements Flyable {
+    public void fly() {
+        System.out.println("Bird flying");
+    }
+}</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>import</code></td>
+                    <td>Used to bring classes, interfaces, and subpackages from other packages into the current source file, making them directly accessible without fully qualifying their names.</td>
+                    <td><pre><code>import java.util.ArrayList; // Imports ArrayList class
+import java.io.*; // Imports all classes in java.io package</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>instanceof</code></td>
+                    <td>A binary operator used to test if an object is an instance of a particular class or a subclass of that class, or implements a particular interface.</td>
+                    <td><pre><code>String name = "Java";
+if (name instanceof String) {
+    System.out.println("name is a String");
+}</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>int</code></td>
+                    <td>A primitive data type that stores 32-bit signed two's complement integers. Range from -2,147,483,648 to 2,147,483,647.</td>
+                    <td><pre><code>int quantity = 100;
+int year = 2025;</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>interface</code></td>
+                    <td>Used to declare an interface, which is a blueprint of a class. It can contain method signatures (implicitly abstract) and default/static methods. It defines a contract that implementing classes must adhere to.</td>
+                    <td><pre><code>public interface Shape {
+    double getArea();
+    default void printInfo() {
+        System.out.println("This is a shape.");
+    }
+}</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>long</code></td>
+                    <td>A primitive data type that stores 64-bit signed two's complement integers. Used for very large whole numbers.</td>
+                    <td><pre><code>long population = 8000000000L; // 'L' suffix for long literal</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>native</code></td>
+                    <td>A non-access modifier that indicates a method's implementation is provided by platform-specific code (e.g., C/C++ via JNI).</td>
+                    <td><pre><code>public native void doSomethingNative();</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>new</code></td>
+                    <td>Used to create a new instance (object) of a class or an array. It allocates memory for the new object.</td>
+                    <td><pre><code>Car myCar = new Car(); // Creates a new Car object
+int[] numbers = new int[5]; // Creates a new array of 5 integers</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>package</code></td>
+                    <td>Used to declare the package to which the classes, interfaces, and enums in the current source file belong. Helps organize classes and prevents naming conflicts.</td>
+                    <td><pre><code>package com.example.myproject;
+public class MyClass { /* ... */ }</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>private</code></td>
+                    <td>An access modifier. Members declared as <code>private</code> are only accessible within the class they are declared in. This promotes encapsulation.</td>
+                    <td><pre><code>public class Person {
+    private String name; // Only accessible within Person class
+    public String getName() { return this.name; }
+}</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>protected</code></td>
+                    <td>An access modifier. Members declared as <code>protected</code> are accessible within the class they are declared in, by subclasses, and by classes within the same package.</td>
+                    <td><pre><code>public class Vehicle {
+    protected String type; // Accessible by subclasses and same package
+}
+class Car extends Vehicle {
+    public void displayType() {
+        System.out.println(type); // Accesses protected member
+    }
+}</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>public</code></td>
+                    <td>An access modifier. Members declared as <code>public</code> are accessible from any other class, package, or project. It's the least restrictive access level.</td>
+                    <td><pre><code>public class Main {
+    public static void main(String[] args) { /* ... */ }
+}
+public int calculateSum(int a, int b) { /* ... */ }</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>return</code></td>
+                    <td>Used to exit a method. If the method has a non-<code>void</code> return type, it must be followed by a value of the appropriate type.</td>
+                    <td><pre><code>public int add(int a, int b) {
+    return a + b; // Returns the sum
+}
+public void printMessage() {
+    System.out.println("Hello");
+    return; // Optional for void methods
+}</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>short</code></td>
+                    <td>A primitive data type that stores 16-bit signed two's complement integers. Range from -32,768 to 32,767.</td>
+                    <td><pre><code>short numStudents = 15000;</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>static</code></td>
+                    <td>A non-access modifier. Members (variables or methods) declared as <code>static</code> belong to the class itself, rather than to any specific instance of the class. They can be accessed directly using the class name.</td>
+                    <td><pre><code>public class MathUtils {
+    public static final double PI = 3.14159; // Static constant
+    public static int add(int a, int b) { // Static method
+        return a + b;
+    }
+}
+double area = MathUtils.PI * 5 * 5;</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>strictfp</code></td>
+                    <td>A non-access modifier used to restrict floating-point calculations to ensure strict adherence to IEEE 754 floating-point standards.</td>
+                    <td><pre><code>public strictfp class Calculator {
+    // Floating-point calculations inside will be strict
+    public double calculate(double x, double y) {
+        return x / y;
+    }
+}</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>super</code></td>
+                    <td>Refers to the immediate superclass (parent class) of the current object. Used to call a superclass's constructor or access its members.</td>
+                    <td><pre><code>class Animal {
+    String sound = "Generic Sound";
+    Animal(String s) { this.sound = s; }
+}
+class Dog extends Animal {
+    Dog() {
+        super("Woof"); // Calls Animal's constructor
+    }
+    void printSound() {
+        System.out.println(super.sound); // Accesses superclass member
+    }
+}</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>switch</code></td>
+                    <td>A control flow statement that allows a variable to be tested for equality against a list of values.</td>
+                    <td><pre><code>int month = 4;
+String season;
+switch (month) {
+    case 12:
+    case 1:
+    case 2:
+        season = "Winter";
+        break;
+    case 3:
+    case 4:
+    case 5:
+        season = "Spring"; // This will execute
+        break;
+    default:
+        season = "Unknown";
+}
+System.out.println(season);</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>synchronized</code></td>
+                    <td>A non-access modifier used to control access to shared resources in multi-threaded environments. It ensures that only one thread can execute a synchronized method or block at a time for a given object.</td>
+                    <td><pre><code>public class Counter {
+    private int count = 0;
+    public synchronized void increment() {
+        count++; // Ensures atomic increment in multithreading
+    }
+}</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>this</code></td>
+                    <td>Refers to the current object. Used to distinguish instance variables from local variables/parameters with the same name, or to call another constructor in the same class.</td>
+                    <td><pre><code>public class Person {
+    String name;
+    int age;
+    public Person(String name, int age) {
+        this.name = name; // Refers to the instance variable
+        this.age = age;
+    }
+    public void display() {
+        this.sayHello(); // Calls another method on the current object
+    }
+    private void sayHello() {
+        System.out.println("Hello, " + this.name);
+    }
+}</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>throw</code></td>
+                    <td>Used to explicitly throw an exception from a method or any block of code.</td>
+                    <td><pre><code>public void checkAge(int age) {
+    if (age < 0) {
+        throw new IllegalArgumentException("Age cannot be negative.");
+    }
+}</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>throws</code></td>
+                    <td>Used in a method signature to declare the types of exceptions that a method might throw. It's a way of telling the caller that they need to handle these exceptions.</td>
+                    <td><pre><code>public void readFile(String filePath) throws IOException {
+    // Code that might throw IOException
+    // For example, new FileInputStream(filePath);
+}</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>transient</code></td>
+                    <td>A non-access modifier used to mark a field of an object to indicate that it should not be serialized when the object is written to a persistent storage.</td>
+                    <td><pre><code>import java.io.Serializable;
+public class User implements Serializable {
+    private String username;
+    private transient String password; // Will not be serialized
+}</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>try</code></td>
+                    <td>Used to define a block of code that might throw an exception. It must be followed by at least one <code>catch</code> block or a <code>finally</code> block.</td>
+                    <td><pre><code>try {
+    // Code that might cause an error
+    int data = Integer.parseInt("abc");
+} catch (NumberFormatException e) {
+    System.out.println("Invalid number format!");
+}</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>void</code></td>
+                    <td>A return type that indicates a method does not return any value.</td>
+                    <td><pre><code>public void printGreeting() {
+    System.out.println("Hello!");
+}</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>volatile</code></td>
+                    <td>A non-access modifier applied to a variable. It ensures that reads and writes to this variable are atomic and always visible to all threads, preventing caching issues in multi-threaded environments.</td>
+                    <td><pre><code>public class SharedResource {
+    public volatile boolean flag = false; // Ensures visibility across threads
+    public void toggle() {
+        flag = !flag;
+    }
+}</code></pre></td>
+                </tr>
+                <tr>
+                    <td><code>while</code></td>
+                    <td>Used to create a loop that executes its block of code repeatedly as long as a specified boolean condition remains true.</td>
+                    <td><pre><code>int i = 0;
+while (i < 5) {
+    System.out.println(i);
+    i++;
+}</code></pre></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
